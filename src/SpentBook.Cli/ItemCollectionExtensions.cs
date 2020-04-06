@@ -1,0 +1,18 @@
+using System;
+using SysCommand.ConsoleApp;
+
+namespace SpentBook.Cli
+{
+    public static class ItemCollectionExtensions
+    {
+        public static void SetServiceProvider(this ItemCollection itemCollection, IServiceProvider provider) 
+        {
+            itemCollection[nameof(IServiceProvider)] = provider;
+        }
+
+        public static IServiceProvider GetServiceProvider(this ItemCollection itemCollection) 
+        {
+            return (IServiceProvider)itemCollection[nameof(IServiceProvider)];
+        }
+    }
+}
